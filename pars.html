@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -50,9 +49,8 @@
             color: #ffffff;
         }
         .survey-form input[type="text"],
-        .survey-form input[type="email"],
-        .survey-form textarea,
-        .survey-form select {
+        .survey-form select,
+        .survey-form textarea {
             width: 100%;
             padding: 10px;
             margin-top: 5px;
@@ -80,29 +78,30 @@
     </style>
 </head>
 <body>
-  <div class="top-line">
-    <a href="index.html" class="top-line-text">Главная страница</a>
-  </div>
+    <!-- Верхняя полоса -->
+    <div class="top-line">
+        <a href="index.html" class="top-line-text">Главная страница</a>
+    </div>
   
-  <div class="survey-form">
-      <h1 style="color: #fff;"> Введите данные</h1>
-      <form action="{% url 'survey' %}" method="post" enctype="multipart/form-data">  
-
-          <!-- Сайт -->
-          <label for="id_name">Сайт:</label>
-          <select id="id_site" name="site" required>
-            <option value="" disabled selected>Выберите сайт</option>
-            <option value="hh">HH</option>
-            <option value="github">GitHub</option>
-          </select>
-          <!-- Ключевое слово -->
-          <label for="id_email">Ключевое слово:</label>
-          <input type="email" id="id_email" name="email" required>
-          <!-- Местоположение -->
-          <label for="id_message">Местоположение:</label>
-          <textarea id="id_message" name="message" required></textarea>
-          <button type="submit">Отправить</button>
-      </form>
-  </div>
+    <!-- Форма -->
+    <div class="survey-form">
+        <h1 style="color: #fff;">Введите данные</h1>
+        <form action="/survey" method="post" enctype="multipart/form-data">
+            <!-- Сайт -->
+            <label for="id_site">Сайт:</label>
+            <select id="id_site" name="site" required>
+                <option value="" disabled selected>Выберите сайт</option>
+                <option value="hh">HH</option>
+                <option value="github">GitHub</option>
+            </select>
+            <!-- Ключевое слово -->
+            <label for="id_keyword">Ключевое слово:</label>
+            <input type="text" id="id_keyword" name="keyword" required>
+            <!-- Местоположение -->
+            <label for="id_location">Местоположение:</label>
+            <textarea id="id_location" name="location" required></textarea>
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
 </body>
 </html>
